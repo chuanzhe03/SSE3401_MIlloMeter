@@ -1,4 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="TODO"
+    android:versionName="TODO">
     <application
         android:label="lab_5_2"
         android:name="${applicationName}"
