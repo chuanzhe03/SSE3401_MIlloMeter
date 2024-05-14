@@ -5,7 +5,7 @@ workflows:
     max_build_duration: 30
     environment:
       groups:
-        - google-credentials
+        - $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
       flutter: stable
       xcode: latest
       cocoapods: default
