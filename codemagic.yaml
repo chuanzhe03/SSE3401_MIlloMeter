@@ -23,7 +23,7 @@ workflows:
           set -ex
           cd android
           ./gradlew app:assembleAndroidTest
-          ./gradlew app:assembleDebug -Ptarget="integration_test/integration_test.dart"
+          ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/integration_test.dart"
       - name: Run Firebase Test Lab Tests
         script: |
           set -ex
@@ -32,10 +32,10 @@ workflows:
           gcloud --quiet config set project $FIREBASE_PROJECT
           
           gcloud firebase test android run \
-          --type instrumentation \
-          --app build/app/outputs/apk/debug/apk-debug.apk \
-          --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
-          --timeout 3m
+           --type instrumentation \
+           --app build/app/outputs/apk/debug/apk-debug.apk \
+           --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
+           --timeout 3m
 
     artifacts:
         - build/**/outputs/**/*.apk
