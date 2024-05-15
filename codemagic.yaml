@@ -18,6 +18,14 @@ workflows:
       - name: Build APK with Flutter
         script: |
           flutter build apk --debug
+      - name: Print APK Directory Contents
+        script: |
+            ls -l build/app/outputs/apk/debug/
+
+      - name: Print AndroidTest Directory Contents
+        script: |
+            ls -l build/app/outputs/apk/androidTest/debug/
+
       - name: Create debug and test APK
         script: |
           set -ex
