@@ -23,7 +23,7 @@ workflows:
           set -ex
           cd android
           ./gradlew app:assembleAndroidTest
-          ./gradlew app:assembleDebug -Ptarget="lib/main.dart"
+          ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/integration_test.dart"
       - name: Run Firebase Test Lab Tests
         script: |
           set -ex
