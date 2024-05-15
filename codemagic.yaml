@@ -18,21 +18,20 @@ workflows:
       - name: Build APK with Flutter
         script: |
           flutter build apk --debug
-      - name: Print APK Directory Contents
-        script: |
-            ls -l build/app/outputs/apk/debug/
-
-      - name: Print AndroidTest Directory Contents
-        script: |
-            ls -l build/app/outputs/apk/androidTest/debug/
-
       - name: Create debug and test APK
         script: |
           set -ex
           cd android
-          ./gradlew clean assembleDebug
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/integration_test.dart"
+      - name: Print APK Directory Contents
+        script: |
+          ls -l build/app/outputs/apk/debug/
+
+      - name: Print AndroidTest Directory Contents
+        script: |
+          ls -l build/app/outputs/apk/androidTest/debug/
+
       - name: Run Firebase Test Lab Tests
         script: |
           set -ex
