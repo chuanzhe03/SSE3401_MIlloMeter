@@ -22,6 +22,7 @@ workflows:
         script: |
           set -ex
           cd android
+          ./gradlew clean assembleDebug
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/integration_test.dart"
       - name: Run Firebase Test Lab Tests
