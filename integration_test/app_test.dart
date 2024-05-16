@@ -33,14 +33,15 @@ void main() {
 
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.factory).at(0));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.factory).at(1));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.factory).at(2));
         await Future.delayed(const Duration(seconds: 2));
 
         await tester.pumpAndSettle();
         await tester.tap(find.byIcon(Icons.person));
         await tester.pumpAndSettle();
-
 
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.add));
@@ -49,9 +50,9 @@ void main() {
         expect(find.byType(invitation), findsOneWidget);
 
         await Future.delayed(const Duration(seconds: 1));
-        await tester.enterText(find.byType(TextField).at(0), "Lim");
+        await tester.enterText(find.byType(TextField), "Lim");
         await Future.delayed(const Duration(seconds: 1));
-        await tester.enterText(find.byType(IntlPhoneField).at(1), "532355522");
+        await tester.enterText(find.byType(IntlPhoneField), "532355522");
         await Future.delayed(const Duration(seconds: 1));
         await tester.tap(find.byType(ElevatedButton));
         await tester.pumpAndSettle();
