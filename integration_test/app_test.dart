@@ -51,7 +51,7 @@ void main() {
         expect(find.byType(invitationPage), findsOneWidget);
 
         await Future.delayed(const Duration(seconds: 2));
-        await tester.enterText(find.byType(TextField), "Lim");
+        await tester.enterText(find.byKey(const Key("Text field")),'LIM');
         await Future.delayed(const Duration(seconds: 1));
         await tester.enterText(find.byType(IntlPhoneField), "532355522");
         await Future.delayed(const Duration(seconds: 1));

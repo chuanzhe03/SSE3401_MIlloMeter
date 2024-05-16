@@ -69,6 +69,7 @@ class _invitationPageState extends State<invitationPage> {
               Container(
                 width: screenWidth * 0.8,
                 child: TextField(
+                  key: Key('Text field'),
                    controller: textEditingController1,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
