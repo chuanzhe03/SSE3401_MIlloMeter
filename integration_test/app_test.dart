@@ -39,8 +39,21 @@ void main() {
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.factory).at(2));
         await Future.delayed(const Duration(seconds: 2));
-
         await tester.pumpAndSettle();
+
+        await Future.delayed(const Duration(seconds: 2));
+        await tester.tap(find.byIcon(Icons.settings));
+        await tester.pumpAndSettle();
+
+        await Future.delayed(const Duration(seconds: 3));
+        await tester.tap(find.byIcon(Icons.edit));
+        await tester.pumpAndSettle();
+
+        await Future.delayed(const Duration(seconds: 1));
+        await tester.enterText(find.byType(TextField).at(1), "10");
+        await Future.delayed(const Duration(seconds: 3));
+        await tester.tap(find.byKey(const Key("save")));
+
         await tester.tap(find.byIcon(Icons.person));
         await tester.pumpAndSettle();
 
@@ -58,19 +71,6 @@ void main() {
         await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
 
-
-        await Future.delayed(const Duration(seconds: 2));
-        await tester.tap(find.byIcon(Icons.settings));
-        await tester.pumpAndSettle();
-
-        await Future.delayed(const Duration(seconds: 3));
-        await tester.tap(find.byIcon(Icons.edit));
-        await tester.pumpAndSettle();
-
-        await Future.delayed(const Duration(seconds: 1));
-        await tester.enterText(find.byType(TextField).at(1), "10");
-        await Future.delayed(const Duration(seconds: 3));
-        await tester.tap(find.byKey(const Key("save")));
       },
     );
   });
