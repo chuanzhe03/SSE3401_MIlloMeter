@@ -439,7 +439,7 @@ class _firstPageState extends State<firstPage> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder:(context)=>
-                                    const invitation(),
+                                    const invitationPage(),
                                   ),
                                 );
                               },

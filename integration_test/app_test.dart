@@ -26,7 +26,7 @@ void main() {
         expect(find.byType(activePage), findsOneWidget);
 
         await tester.enterText(find.byType(TextField),"258332");
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 3));
         await tester.tap(find.byType(ElevatedButton));
         await tester.pumpAndSettle();
 
@@ -48,9 +48,9 @@ void main() {
         await tester.tap(find.byIcon(Icons.add));
         await tester.pumpAndSettle();
 
-        expect(find.byType(invitation), findsOneWidget);
+        expect(find.byType(invitationPage), findsOneWidget);
 
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byType(TextField), "Lim");
         await Future.delayed(const Duration(seconds: 1));
         await tester.enterText(find.byType(IntlPhoneField), "532355522");

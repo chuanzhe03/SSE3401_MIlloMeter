@@ -4,14 +4,14 @@ import 'package:lab_5_2/home.dart';
 import 'package:lab_5_2/user_provider.dart';
 import 'package:provider/provider.dart';
 
-class invitation extends StatefulWidget {
-  const invitation( {super.key});
+class invitationPage extends StatefulWidget {
+  const invitationPage( {super.key});
 
   @override
-  State<invitation> createState() => _invitationState();
+  State<invitationPage> createState() => _invitationPageState();
 }
 
-class _invitationState extends State<invitation> {
+class _invitationPageState extends State<invitationPage> {
   TextEditingController textEditingController1=TextEditingController();
   String phoneNumber='';
 
