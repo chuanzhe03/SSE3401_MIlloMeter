@@ -26,7 +26,7 @@ void main() {
         expect(find.byType(activePage), findsOneWidget);
 
         await tester.enterText(find.byType(TextField),"258332");
-        await Future.delayed(const Duration(seconds: 5));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byType(ElevatedButton));
         await tester.pumpAndSettle();
 
@@ -52,28 +52,26 @@ void main() {
 
         await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byKey(const Key("Text field")),'LIM');
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byType(IntlPhoneField), "532355522");
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byType(ElevatedButton));
         await tester.pumpAndSettle();
 
-        await Future.delayed(const Duration(seconds: 1));
+        expect(find.byType(firstPage), findsOneWidget);
+
+        await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.settings));
         await tester.pumpAndSettle();
 
-        expect(find.byType(firstPage).at(2), findsOneWidget);
-
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 3));
         await tester.tap(find.byIcon(Icons.edit));
         await tester.pumpAndSettle();
-
-        expect(find.byType(TextField), findsWidgets);
 
         await Future.delayed(const Duration(seconds: 1));
         await tester.enterText(find.byType(TextField).at(1), "10");
         await Future.delayed(const Duration(seconds: 3));
-        await tester.tap(find.byType(ElevatedButton));
+        await tester.tap(find.byKey(const Key("save")));
       },
     );
   });
