@@ -130,6 +130,7 @@ class _invitationPageState extends State<invitationPage> {
                 width: 300,
                 padding: EdgeInsets.all(20),
                 child: ElevatedButton(
+                  key: Key('button'),
                     onPressed: (){
                       context.read<UserProvider>().change(newName: textEditingController1.text, newPhone: phoneNumber);
                       FocusManager.instance.primaryFocus?.unfocus();

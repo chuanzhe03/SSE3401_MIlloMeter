@@ -55,7 +55,7 @@ void main() {
         await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byType(IntlPhoneField), "532355522");
         await Future.delayed(const Duration(seconds: 2));
-        await tester.tap(find.byType(ElevatedButton));
+        await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
 
         expect(find.byType(firstPage), findsOneWidget);
