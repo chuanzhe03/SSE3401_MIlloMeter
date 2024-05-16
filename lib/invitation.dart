@@ -104,6 +104,7 @@ class _invitationPageState extends State<invitationPage> {
               Container(
                 width: screenWidth * 0.8,
                 child: IntlPhoneField(
+                  key: Key('phone'),
                   onChanged: (phone) {
                     setState(() {
                       phoneNumber = phone.completeNumber;

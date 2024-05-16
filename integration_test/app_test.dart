@@ -53,7 +53,7 @@ void main() {
         await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byKey(const Key("Text field")),'LIM');
         await Future.delayed(const Duration(seconds: 2));
-        await tester.enterText(find.byType(IntlPhoneField), "532355522");
+        await tester.enterText(find.byKey(const Key("phone")), "5325355522");
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
