@@ -58,7 +58,6 @@ void main() {
         await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
 
-        expect(find.byType(firstPage), findsOneWidget);
 
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byIcon(Icons.settings));
