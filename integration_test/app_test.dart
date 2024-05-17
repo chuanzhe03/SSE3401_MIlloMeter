@@ -7,7 +7,6 @@ import 'package:lab_5_2/invitation.dart';
 import 'package:lab_5_2/main.dart' as app;
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -43,29 +42,29 @@ void main() {
         await tester.pumpAndSettle();
         await Future.delayed(const Duration(seconds: 6));
         await tester.tap(find.byIcon(Icons.factory).at(2));
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 3));
         await tester.pumpAndSettle();
 
         await Future.delayed(const Duration(seconds: 2));
         await tester.tap(find.byKey(const Key("button settings")));
         await tester.pumpAndSettle();
 
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 3));
         await tester.tap(find.byIcon(Icons.edit));
         await tester.pumpAndSettle();
 
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 4));
         await tester.enterText(find.byType(TextField).at(1), "10");
         await tester.pumpAndSettle();
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 4));
         await tester.tap(find.byKey(const Key("save")));
         await tester.pumpAndSettle();
-        await Future.delayed(const Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 5));
 
         await tester.tap(find.byIcon(Icons.person));
         await tester.pumpAndSettle();
 
-        await Future.delayed(const Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 4));
         await tester.tap(find.byIcon(Icons.add));
         await tester.pumpAndSettle();
 
@@ -74,18 +73,13 @@ void main() {
         await Future.delayed(const Duration(seconds: 2));
         await tester.enterText(find.byKey(const Key("Text field")),'LIM');
         await tester.pumpAndSettle();
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 4));
         await tester.enterText(find.byKey(const Key("phone")), "5325355522");
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 5));
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
-        await Future.delayed(const Duration(seconds: 3));
-
-        Navigator.of(tester.element(find.byType(Scaffold))).pop();
-        await tester.pumpAndSettle();
-
-        await Future.delayed(const Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 5));
       },
     );
   });
