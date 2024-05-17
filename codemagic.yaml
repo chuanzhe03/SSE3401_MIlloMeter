@@ -48,5 +48,5 @@ workflows:
         recipients:
          - chuanzhe03@gmail.com
         notify:
-          - success: true
-          - failure: false
+          success: true
+          failure: false
