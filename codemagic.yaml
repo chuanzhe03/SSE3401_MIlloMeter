@@ -42,3 +42,11 @@ workflows:
         - build/**/outputs/**/*.aab
         - build/**/outputs/**/mapping.txt
         - flutter_drive.log
+
+    publishing:
+      email:
+        recipients:
+         - chuanzhe03@gmail.com
+        notify:
+          - success: true
+          - failure: false
