@@ -79,6 +79,28 @@ void main() {
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key("button")),);
         await tester.pumpAndSettle();
+        await Future.delayed(const Duration(seconds: 3));
+
+        Navigator.of(tester.element(find.byType(Scaffold))).pop();
+        await tester.pumpAndSettle();
+        await Future.delayed(const Duration(seconds: 3));
+        await tester.tap(find.byIcon(Icons.add));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(invitationPage), findsOneWidget);
+
+        await Future.delayed(const Duration(seconds: 2));
+        await tester.enterText(find.byKey(const Key("Text field")),'LIM');
+        await tester.pumpAndSettle();
+        await Future.delayed(const Duration(seconds: 4));
+        await tester.enterText(find.byKey(const Key("phone")), "5325355522");
+        await Future.delayed(const Duration(seconds: 5));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const Key("button")),);
+        await tester.pumpAndSettle();
+        await Future.delayed(const Duration(seconds: 5));
+        await tester.pumpAndSettle();
+
         await Future.delayed(const Duration(seconds: 5));
       },
     );
