@@ -10,7 +10,7 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-        FIREBASE_PROJECT: "sse3401-lab6-62f1e"
+        FIREBASE_PROJECT: "sse3401-lab6-9f8ac"
     scripts:
       - name: Get Flutter packages
         script: |
