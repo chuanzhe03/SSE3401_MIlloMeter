@@ -5,12 +5,12 @@ workflows:
     max_build_duration: 30
     environment:
       groups:
-        - google_credentials
+        - $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
       flutter: stable
       xcode: latest
       cocoapods: default
       vars:
-        FIREBASE_PROJECT: "sse3401-lab6-9f8ac"
+        FIREBASE_PROJECT: "sse3401-lab6-62f1e"
     scripts:
       - name: Get Flutter packages
         script: |
