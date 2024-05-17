@@ -1007,7 +1007,7 @@ class _firstPageState extends State<firstPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person,),
             label: '',
           ),
           BottomNavigationBarItem(
@@ -1015,7 +1015,8 @@ class _firstPageState extends State<firstPage> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings,
+            key:Key('button settings')),
             label: '',
           )
         ],
