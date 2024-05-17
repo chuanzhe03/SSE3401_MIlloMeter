@@ -390,6 +390,7 @@ class _firstPageState extends State<firstPage> {
                       ] ),
                 ):currentIndex==0 ?
                   Column(
+                    key:Key('contact'),
                     children: [
                       Expanded(
                         child: ListView.builder(
