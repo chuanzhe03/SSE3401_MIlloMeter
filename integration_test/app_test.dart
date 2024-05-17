@@ -6,8 +6,7 @@ import 'package:lab_5_2/home.dart';
 import 'package:lab_5_2/invitation.dart';
 import 'package:lab_5_2/main.dart' as app;
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:lab_5_2/user_provider.dart';
-import 'package:provider/provider.dart';
+
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
