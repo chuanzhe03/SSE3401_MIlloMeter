@@ -84,7 +84,8 @@ void main() {
         Navigator.of(tester.element(find.byType(Scaffold))).pop();
         await tester.pumpAndSettle();
         expect(find.byType(firstPage), findsOneWidget);
-        await Future.delayed(const Duration(seconds: 3));
+        await tester.pumpAndSettle();
+        await Future.delayed(const Duration(seconds: 2));
       },
     );
   });

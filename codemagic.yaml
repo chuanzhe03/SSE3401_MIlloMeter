@@ -47,6 +47,7 @@ workflows:
       email:
         recipients:
          - chuanzhe03@gmail.com
+         - kengyap@upm.edu.my
         notify:
           success: true
           failure: false
