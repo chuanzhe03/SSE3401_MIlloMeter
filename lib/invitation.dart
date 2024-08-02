@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:lab_5_2/home.dart';
+import 'package:lab_5_2/model/contact_model.dart';
+import 'package:lab_5_2/services/api.dart';
 import 'package:lab_5_2/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,11 +16,14 @@ class invitationPage extends StatefulWidget {
 class _invitationPageState extends State<invitationPage> {
   TextEditingController textEditingController1=TextEditingController();
   String phoneNumber='';
+  late Api api=Api();
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
+    int index=context.watch<UserProvider>().indexNum;
+    late Future<List<ContactData>> futureContact=api.fetchContact(index);
 
     return Scaffold(
       appBar: AppBar(
@@ -135,14 +140,28 @@ class _invitationPageState extends State<invitationPage> {
                     onPressed: (){
                       context.read<UserProvider>().change(newName: textEditingController1.text, newPhone: phoneNumber);
                       FocusManager.instance.primaryFocus?.unfocus();
-                      textEditingController1.clear();
 
-                      Navigator.of(context).pop(
-                        MaterialPageRoute(
-                          builder:(context)=>
-                          const firstPage(),
-                        ),
-                      );
+                      var data1 = {
+                        "name": textEditingController1.text,
+                        "role": 'admin',
+                        "factory": Provider.of<UserProvider>(context, listen: false).indexNum.toString(),
+                        "phoneNumber": phoneNumber,
+                      };
+                      Api.addContact(data1);
+
+                      var data2 = {
+                        "phoneList": phoneNumber,
+                      };
+                      Api.addPhoneList(data2);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const firstPage()),
+                      ).then((_) {
+                        setState(() {
+                          futureContact = api.fetchContact(index);
+                        });
+                      });
 
                     },
                     style: ButtonStyle(

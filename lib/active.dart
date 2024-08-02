@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lab_5_2/home.dart';
 import 'package:lab_5_2/main.dart';
+import 'package:lab_5_2/services/api.dart';
+import 'package:provider/provider.dart';
+import 'package:lab_5_2/user_provider.dart';
 
 class activePage extends StatefulWidget {
   const activePage({super.key});
@@ -10,11 +13,27 @@ class activePage extends StatefulWidget {
 }
 
 class _activePageState extends State<activePage> {
+  late Api api = Api();
+  TextEditingController textEditingController1=new TextEditingController();
+  bool check=false;
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
+
+    Future<void> _verifyOtp() async {
+      try {
+        await api.verifyOtp(Provider.of<UserProvider>(context, listen: false).phoneNumber.toString(), textEditingController1.text);
+        setState(() {
+          check=true;
+        });
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to verify OTP: ')),
+        );
+      }
+    }
 
     return Scaffold(
         body:SingleChildScrollView(
@@ -78,6 +97,7 @@ class _activePageState extends State<activePage> {
                      margin: EdgeInsets.fromLTRB(25,25,25,10),
                      padding: EdgeInsets.fromLTRB(screenWidth * 0.04,screenWidth * 0.01,screenWidth * 0.04,screenWidth * 0.01),
                      child: TextField(
+                       controller: textEditingController1,
                        keyboardType: TextInputType.number,
                        decoration: InputDecoration(
                          border: OutlineInputBorder(
@@ -108,7 +128,7 @@ class _activePageState extends State<activePage> {
                           onPressed:(){
                             Navigator.of(context).pop(
                               MaterialPageRoute(builder: (context)=>
-                                  const loginPage()
+                                  const LoginPage()
                               )
                             );
                           },
@@ -130,12 +150,16 @@ class _activePageState extends State<activePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                            onPressed: (){
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context)=>
-                                  const firstPage()
-                                  )
-                              );
+                            onPressed: ()async {
+                              await _verifyOtp();
+
+                              if(check){
+                                Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context)=>
+                                    const firstPage()
+                                    )
+                                );
+                              }
                             },
                             child:Text('Activate',
                             style: TextStyle(
